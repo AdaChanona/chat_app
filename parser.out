@@ -1,0 +1,244 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> comando
+Rule 1     comando -> entrada
+Rule 2     entrada -> PROTOCOLO SLASH SLASH dominioweb TLD SLASH
+Rule 3     dominioweb -> PALABRA PUNTO PALABRA
+Rule 4     entrada -> PALABRA ARROBA dominio
+Rule 5     dominio -> ORGANIZACION TLD
+Rule 6     entrada -> NAMECURP DATE SEXO ENTIDAD CONSONANTES NUMAS
+Rule 7     entrada -> EMISOR NUMBANCO NUMCUENTA DIGSEG
+
+Terminals, with rules where they appear
+
+ARROBA               : 4
+CONSONANTES          : 6
+DATE                 : 6
+DIGSEG               : 7
+EMISOR               : 7
+ENTIDAD              : 6
+NAMECURP             : 6
+NUMAS                : 6
+NUMBANCO             : 7
+NUMCUENTA            : 7
+ORGANIZACION         : 5
+PALABRA              : 3 3 4
+PROTOCOLO            : 2
+PUNTO                : 3
+SEXO                 : 6
+SLASH                : 2 2 2
+TLD                  : 2 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+comando              : 0
+dominio              : 4
+dominioweb           : 2
+entrada              : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . comando
+    (1) comando -> . entrada
+    (2) entrada -> . PROTOCOLO SLASH SLASH dominioweb TLD SLASH
+    (4) entrada -> . PALABRA ARROBA dominio
+    (6) entrada -> . NAMECURP DATE SEXO ENTIDAD CONSONANTES NUMAS
+    (7) entrada -> . EMISOR NUMBANCO NUMCUENTA DIGSEG
+
+    PROTOCOLO       shift and go to state 3
+    PALABRA         shift and go to state 4
+    NAMECURP        shift and go to state 5
+    EMISOR          shift and go to state 6
+
+    comando                        shift and go to state 1
+    entrada                        shift and go to state 2
+
+state 1
+
+    (0) S' -> comando .
+
+
+
+state 2
+
+    (1) comando -> entrada .
+
+    $end            reduce using rule 1 (comando -> entrada .)
+
+
+state 3
+
+    (2) entrada -> PROTOCOLO . SLASH SLASH dominioweb TLD SLASH
+
+    SLASH           shift and go to state 7
+
+
+state 4
+
+    (4) entrada -> PALABRA . ARROBA dominio
+
+    ARROBA          shift and go to state 8
+
+
+state 5
+
+    (6) entrada -> NAMECURP . DATE SEXO ENTIDAD CONSONANTES NUMAS
+
+    DATE            shift and go to state 9
+
+
+state 6
+
+    (7) entrada -> EMISOR . NUMBANCO NUMCUENTA DIGSEG
+
+    NUMBANCO        shift and go to state 10
+
+
+state 7
+
+    (2) entrada -> PROTOCOLO SLASH . SLASH dominioweb TLD SLASH
+
+    SLASH           shift and go to state 11
+
+
+state 8
+
+    (4) entrada -> PALABRA ARROBA . dominio
+    (5) dominio -> . ORGANIZACION TLD
+
+    ORGANIZACION    shift and go to state 13
+
+    dominio                        shift and go to state 12
+
+state 9
+
+    (6) entrada -> NAMECURP DATE . SEXO ENTIDAD CONSONANTES NUMAS
+
+    SEXO            shift and go to state 14
+
+
+state 10
+
+    (7) entrada -> EMISOR NUMBANCO . NUMCUENTA DIGSEG
+
+    NUMCUENTA       shift and go to state 15
+
+
+state 11
+
+    (2) entrada -> PROTOCOLO SLASH SLASH . dominioweb TLD SLASH
+    (3) dominioweb -> . PALABRA PUNTO PALABRA
+
+    PALABRA         shift and go to state 17
+
+    dominioweb                     shift and go to state 16
+
+state 12
+
+    (4) entrada -> PALABRA ARROBA dominio .
+
+    $end            reduce using rule 4 (entrada -> PALABRA ARROBA dominio .)
+
+
+state 13
+
+    (5) dominio -> ORGANIZACION . TLD
+
+    TLD             shift and go to state 18
+
+
+state 14
+
+    (6) entrada -> NAMECURP DATE SEXO . ENTIDAD CONSONANTES NUMAS
+
+    ENTIDAD         shift and go to state 19
+
+
+state 15
+
+    (7) entrada -> EMISOR NUMBANCO NUMCUENTA . DIGSEG
+
+    DIGSEG          shift and go to state 20
+
+
+state 16
+
+    (2) entrada -> PROTOCOLO SLASH SLASH dominioweb . TLD SLASH
+
+    TLD             shift and go to state 21
+
+
+state 17
+
+    (3) dominioweb -> PALABRA . PUNTO PALABRA
+
+    PUNTO           shift and go to state 22
+
+
+state 18
+
+    (5) dominio -> ORGANIZACION TLD .
+
+    $end            reduce using rule 5 (dominio -> ORGANIZACION TLD .)
+
+
+state 19
+
+    (6) entrada -> NAMECURP DATE SEXO ENTIDAD . CONSONANTES NUMAS
+
+    CONSONANTES     shift and go to state 23
+
+
+state 20
+
+    (7) entrada -> EMISOR NUMBANCO NUMCUENTA DIGSEG .
+
+    $end            reduce using rule 7 (entrada -> EMISOR NUMBANCO NUMCUENTA DIGSEG .)
+
+
+state 21
+
+    (2) entrada -> PROTOCOLO SLASH SLASH dominioweb TLD . SLASH
+
+    SLASH           shift and go to state 24
+
+
+state 22
+
+    (3) dominioweb -> PALABRA PUNTO . PALABRA
+
+    PALABRA         shift and go to state 25
+
+
+state 23
+
+    (6) entrada -> NAMECURP DATE SEXO ENTIDAD CONSONANTES . NUMAS
+
+    NUMAS           shift and go to state 26
+
+
+state 24
+
+    (2) entrada -> PROTOCOLO SLASH SLASH dominioweb TLD SLASH .
+
+    $end            reduce using rule 2 (entrada -> PROTOCOLO SLASH SLASH dominioweb TLD SLASH .)
+
+
+state 25
+
+    (3) dominioweb -> PALABRA PUNTO PALABRA .
+
+    TLD             reduce using rule 3 (dominioweb -> PALABRA PUNTO PALABRA .)
+
+
+state 26
+
+    (6) entrada -> NAMECURP DATE SEXO ENTIDAD CONSONANTES NUMAS .
+
+    $end            reduce using rule 6 (entrada -> NAMECURP DATE SEXO ENTIDAD CONSONANTES NUMAS .)
+
